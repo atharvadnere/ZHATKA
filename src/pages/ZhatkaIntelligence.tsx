@@ -330,7 +330,7 @@ export const ZhatkaIntelligence: React.FC = () => {
                           </button>
                           <button
                             onClick={() => rejectRecommendation(activeRec.recommendationId, adminComment || 'Rejected by administrator')}
-                            className="h-[32px] px-3 text-[13px] font-medium text-[#B42318] bg-white border border-[#D92D20]/40 dark:bg-[#12203A] dark:text-red-400 dark:border-red-900 rounded-[8px] hover:bg-[#FCE4E4]/40"
+                            className="h-[32px] px-3 text-[13px] font-medium text-[#B42318] bg-white border border-[#D92D20]/40 dark:bg-[#18181B] dark:text-red-400 dark:border-red-900/60 rounded-[8px] hover:bg-[#FCE4E4]/40 dark:hover:bg-red-950/30"
                           >
                             Reject
                           </button>

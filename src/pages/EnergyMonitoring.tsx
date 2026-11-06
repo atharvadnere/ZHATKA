@@ -86,17 +86,17 @@ export const EnergyMonitoring: React.FC = () => {
       />
 
       {/* Scope Switch & Time Controls */}
-      <div className="p-3.5 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] flex items-center justify-between flex-wrap gap-4 transition-colors">
+      <div className="p-3.5 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] flex items-center justify-between flex-wrap gap-4 transition-colors">
         <div className="flex items-center gap-2">
           <span className="text-[12px] font-medium text-[var(--text-secondary)]">Aggregation Scope:</span>
-          <div className="flex items-center p-0.5 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-[6px] text-[12px] font-medium">
+          <div className="flex items-center p-0.5 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-[6px] text-[12px] font-medium">
             {(['Room', 'Floor', 'Building'] as const).map((s) => (
               <button
                 key={s}
                 onClick={() => setScope(s)}
                 className={`px-3 py-1 rounded-[4px] transition-colors ${
                   scope === s
-                    ? 'bg-[var(--bg)] text-[var(--text)] dark:bg-[#1E3A6B] dark:text-[#7DD3FC] shadow-xs font-semibold'
+                    ? 'bg-[var(--bg)] text-[var(--text)] dark:bg-[#27272A] dark:text-sky-300 shadow-xs font-semibold'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text)]'
                 }`}
               >
@@ -108,14 +108,14 @@ export const EnergyMonitoring: React.FC = () => {
 
         <div className="flex items-center gap-2">
           <span className="text-[12px] font-medium text-[var(--text-secondary)]">Historical Window:</span>
-          <div className="flex items-center p-0.5 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-[6px] text-[12px] font-medium">
+          <div className="flex items-center p-0.5 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-[6px] text-[12px] font-medium">
             {(['Today', '7D', '30D'] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => setTimeRange(t)}
                 className={`px-3 py-1 rounded-[4px] transition-colors ${
                   timeRange === t
-                    ? 'bg-[var(--bg)] text-[var(--text)] dark:bg-[#1E3A6B] dark:text-[#7DD3FC] shadow-xs font-semibold'
+                    ? 'bg-[var(--bg)] text-[var(--text)] dark:bg-[#27272A] dark:text-sky-300 shadow-xs font-semibold'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text)]'
                 }`}
               >
@@ -127,7 +127,7 @@ export const EnergyMonitoring: React.FC = () => {
       </div>
 
       {/* Dynamic Telemetry Chart Panel */}
-      <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-5 space-y-4 transition-colors">
+      <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-5 space-y-4 transition-colors">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <h3 className="text-[14px] font-semibold text-[var(--text)] flex items-center gap-2">
@@ -155,25 +155,25 @@ export const EnergyMonitoring: React.FC = () => {
         {timeRange === 'Today' && (
           <div className="space-y-4 pt-2">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Current Live Demand</span>
                 <div className="text-base font-bold font-mono text-[var(--blue-text)] mt-0.5">
                   {kpis.totalDemandKw} kW
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Peak Hour (11:00 AM)</span>
                 <div className="text-base font-bold font-mono text-amber-600 dark:text-amber-400 mt-0.5">
                   {Math.round(kpis.totalDemandKw * 1.32 * 10) / 10} kW
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">24h Cumulative Energy</span>
                 <div className="text-base font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
                   {Math.round(kpis.totalDemandKw * 16.8)} kWh
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Idle Night Baseline</span>
                 <div className="text-base font-bold font-mono text-[var(--text-secondary)] mt-0.5">
                   {Math.round(kpis.totalDemandKw * 0.35 * 10) / 10} kW
@@ -182,7 +182,7 @@ export const EnergyMonitoring: React.FC = () => {
             </div>
 
             {/* 24 Bar Visualizer */}
-            <div className="h-48 flex items-end gap-1 sm:gap-2 pt-6 pb-2 px-1 border-b border-[var(--border)] dark:border-[#243557]">
+            <div className="h-48 flex items-end gap-1 sm:gap-2 pt-6 pb-2 px-1 border-b border-[var(--border)] dark:border-[#27272A]">
               {hourlyData.map((pt, i) => {
                 const maxKw = 50;
                 const heightPct = Math.min(100, (pt.measuredKw / maxKw) * 100);
@@ -208,7 +208,7 @@ export const EnergyMonitoring: React.FC = () => {
                         className={`w-full max-w-[14px] rounded-t-xs transition-all ${
                           pt.isPeak
                             ? 'bg-[var(--blue)] dark:bg-[#38BDF8]'
-                            : 'bg-blue-300 dark:bg-blue-800'
+                            : 'bg-blue-300 dark:bg-sky-700'
                         }`}
                       />
                     </div>
@@ -231,19 +231,19 @@ export const EnergyMonitoring: React.FC = () => {
         {timeRange === '7D' && (
           <div className="space-y-4 pt-2">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">7-Day Total Energy</span>
                 <div className="text-base font-bold font-mono text-[var(--blue-text)] mt-0.5">
                   {weeklyData.reduce((acc, d) => acc + d.totalKwh, 0).toLocaleString()} kWh
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Avoidable Energy Identified</span>
                 <div className="text-base font-bold font-mono text-amber-600 dark:text-amber-400 mt-0.5">
                   {weeklyData.reduce((acc, d) => acc + d.avoidableKwh, 0).toLocaleString()} kWh
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Average Campus Occupancy</span>
                 <div className="text-base font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
                   63% Capacity
@@ -260,7 +260,7 @@ export const EnergyMonitoring: React.FC = () => {
                 return (
                   <div
                     key={d.date}
-                    className="p-3 rounded-lg border border-[var(--border)] dark:border-[#243557] bg-[var(--bg-secondary)]/40 dark:bg-[#0E1A30]/50 space-y-1.5"
+                    className="p-3 rounded-lg border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg-secondary)]/40 dark:bg-[#18181B]/50 space-y-1.5"
                   >
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold text-[var(--text)]">{d.dayLabel}</span>
@@ -272,10 +272,10 @@ export const EnergyMonitoring: React.FC = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="h-2.5 w-full bg-[var(--bg-secondary)] dark:bg-[#182A4A] rounded-full overflow-hidden relative">
+                    <div className="h-2.5 w-full bg-[var(--bg-secondary)] dark:bg-[#202024] rounded-full overflow-hidden relative">
                       <div
                         style={{ width: `${basePct}%` }}
-                        className="h-full bg-slate-300 dark:bg-slate-700 absolute top-0 left-0"
+                        className="h-full bg-slate-300 dark:bg-zinc-700 absolute top-0 left-0"
                       />
                       <div
                         style={{ width: `${totPct}%` }}
@@ -293,25 +293,25 @@ export const EnergyMonitoring: React.FC = () => {
         {timeRange === '30D' && (
           <div className="space-y-4 pt-2">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">30-Day Total Energy</span>
                 <div className="text-base font-bold font-mono text-[var(--blue-text)] mt-0.5">
                   {monthlyData.reduce((acc, d) => acc + d.totalKwh, 0).toLocaleString()} kWh
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Est. Electricity Cost</span>
                 <div className="text-base font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
                   ₹{(monthlyData.reduce((acc, d) => acc + d.totalKwh, 0) * 9.5).toLocaleString('en-IN')}
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">30-Day Avoidable Waste</span>
                 <div className="text-base font-bold font-mono text-amber-600 dark:text-amber-400 mt-0.5">
                   {monthlyData.reduce((acc, d) => acc + d.avoidableKwh, 0).toLocaleString()} kWh
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Month Peak Demand</span>
                 <div className="text-base font-bold font-mono text-red-600 dark:text-red-400 mt-0.5">
                   {Math.max(...monthlyData.map((d) => d.peakDemandKw))} kW
@@ -320,7 +320,7 @@ export const EnergyMonitoring: React.FC = () => {
             </div>
 
             {/* 30 Day Bar Strip */}
-            <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-xl border border-[var(--border)] dark:border-[#243557] space-y-2">
+            <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-xl border border-[var(--border)] dark:border-[#27272A] space-y-2">
               <div className="text-xs font-semibold text-[var(--text)] flex items-center justify-between">
                 <span>Daily kWh Trend (30 Days Telemetry Sampling)</span>
                 <span className="text-[11px] text-[var(--text-secondary)] font-normal">
@@ -364,7 +364,7 @@ export const EnergyMonitoring: React.FC = () => {
       {/* Main Grid: Visuals & Side Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Main Aggregated Table by Scope */}
-        <div className="lg:col-span-8 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-5 space-y-4 transition-colors">
+        <div className="lg:col-span-8 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-5 space-y-4 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-[14px] font-semibold text-[var(--text)]">
@@ -398,7 +398,7 @@ export const EnergyMonitoring: React.FC = () => {
                   <div
                     key={room.roomId}
                     onClick={() => setSelectedRoomId(room.roomId)}
-                    className="p-3 rounded-[8px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] cursor-pointer transition-colors space-y-1.5 border border-[var(--border)] dark:border-[#243557]"
+                    className="p-3 rounded-[8px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22] cursor-pointer transition-colors space-y-1.5 border border-[var(--border)] dark:border-[#27272A]"
                   >
                     <div className="flex items-center justify-between text-[12px]">
                       <div className="flex items-center gap-2">
@@ -413,10 +413,10 @@ export const EnergyMonitoring: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="h-3 w-full bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-full overflow-hidden relative">
+                    <div className="h-3 w-full bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-full overflow-hidden relative">
                       <div
                         style={{ width: `${basePct}%` }}
-                        className="h-full bg-slate-300 dark:bg-slate-700 absolute top-0 left-0"
+                        className="h-full bg-slate-300 dark:bg-zinc-700 absolute top-0 left-0"
                       />
                       <div
                         style={{ width: `${curPct}%` }}
@@ -443,7 +443,7 @@ export const EnergyMonitoring: React.FC = () => {
                 return (
                   <div
                     key={fl.floor}
-                    className="p-3.5 rounded-[8px] bg-[var(--bg-secondary)]/50 dark:bg-[#0E1A30]/50 border border-[var(--border)] dark:border-[#243557] space-y-1.5"
+                    className="p-3.5 rounded-[8px] bg-[var(--bg-secondary)]/50 dark:bg-[#18181B]/50 border border-[var(--border)] dark:border-[#27272A] space-y-1.5"
                   >
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold text-[var(--text)]">{fl.floor}</span>
@@ -453,8 +453,8 @@ export const EnergyMonitoring: React.FC = () => {
                         <span className="text-[11px] text-[var(--text-secondary)]">({fl.count} circuits)</span>
                       </div>
                     </div>
-                    <div className="h-3 w-full bg-[var(--bg-secondary)] dark:bg-[#182A4A] rounded-full overflow-hidden relative">
-                      <div style={{ width: `${basePct}%` }} className="h-full bg-slate-300 dark:bg-slate-700 absolute" />
+                    <div className="h-3 w-full bg-[var(--bg-secondary)] dark:bg-[#202024] rounded-full overflow-hidden relative">
+                      <div style={{ width: `${basePct}%` }} className="h-full bg-slate-300 dark:bg-zinc-700 absolute" />
                       <div
                         style={{ width: `${curPct}%` }}
                         className={`h-full absolute opacity-80 ${
@@ -474,7 +474,7 @@ export const EnergyMonitoring: React.FC = () => {
               {buildingSummaries.map((b) => (
                 <div
                   key={b.buildingId}
-                  className="p-3.5 rounded-lg border border-[var(--border)] dark:border-[#243557] bg-[var(--bg-secondary)]/40 dark:bg-[#0E1A30]/40 flex items-center justify-between flex-wrap gap-3"
+                  className="p-3.5 rounded-lg border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg-secondary)]/40 dark:bg-[#18181B]/40 flex items-center justify-between flex-wrap gap-3"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-[var(--blue-light)] text-[var(--blue-text)] flex items-center justify-center font-bold font-mono">
@@ -505,7 +505,7 @@ export const EnergyMonitoring: React.FC = () => {
         </div>
 
         {/* Side Panel: Unusual Consumption Flags with False Alarm Support */}
-        <div className="lg:col-span-4 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-5 space-y-4 transition-colors">
+        <div className="lg:col-span-4 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-5 space-y-4 transition-colors">
           <div>
             <h3 className="text-[14px] font-semibold text-[var(--text)] flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-amber-500" />
@@ -518,7 +518,7 @@ export const EnergyMonitoring: React.FC = () => {
 
           <div className="space-y-3">
             {unusualItems.length === 0 ? (
-              <div className="p-4 text-center rounded-lg bg-[var(--bg-secondary)] dark:bg-[#0E1A30] text-xs text-[var(--text-secondary)]">
+              <div className="p-4 text-center rounded-lg bg-[var(--bg-secondary)] dark:bg-[#18181B] text-xs text-[var(--text-secondary)]">
                 <CheckCircle2 className="w-6 h-6 text-emerald-500 mx-auto mb-1.5" />
                 No abnormal power deviations detected.
               </div>
@@ -528,7 +528,7 @@ export const EnergyMonitoring: React.FC = () => {
                 return (
                   <div
                     key={item.roomId}
-                    className="p-3.5 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] border border-[var(--border)] dark:border-[#243557] rounded-[8px] space-y-2.5"
+                    className="p-3.5 bg-[var(--bg-secondary)] dark:bg-[#18181B] border border-[var(--border)] dark:border-[#27272A] rounded-[8px] space-y-2.5"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-mono font-bold text-[var(--text)]">{item.roomId}</span>
@@ -541,7 +541,7 @@ export const EnergyMonitoring: React.FC = () => {
                       {item.baselinePowerKw} kW baseline).
                     </div>
 
-                    <div className="flex items-center justify-between pt-1 border-t border-[var(--border)] dark:border-[#243557]">
+                    <div className="flex items-center justify-between pt-1 border-t border-[var(--border)] dark:border-[#27272A]">
                       <button
                         onClick={() => setSelectedRoomId(item.roomId)}
                         className="text-[11px] font-semibold text-[var(--blue-text)] hover:underline flex items-center gap-1"
@@ -552,7 +552,7 @@ export const EnergyMonitoring: React.FC = () => {
 
                       <button
                         onClick={() => markFalseAlarm(`REC-${item.roomId}`, 'Flagged from Energy Monitoring unusual consumption panel.')}
-                        className="text-[10px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800 hover:bg-amber-100 transition-colors"
+                        className="text-[10px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors"
                       >
                         False Alarm
                       </button>

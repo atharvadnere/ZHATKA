@@ -82,10 +82,10 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150">
-      <div className="bg-[var(--bg)] border border-[var(--border)] rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden dark:bg-[#12203A] dark:border-[#243557]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in duration-150">
+      <div className="bg-[var(--bg)] border border-[var(--border)] rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden dark:bg-[#121214] dark:border-[#27272A]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-[var(--border)] dark:border-[#243557] flex items-center justify-between bg-[var(--bg-secondary)] dark:bg-[#0E1A30]">
+        <div className="px-6 py-4 border-b border-[var(--border)] dark:border-[#27272A] flex items-center justify-between bg-[var(--bg-secondary)] dark:bg-[#18181B]">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-red-100 dark:bg-red-950/60 rounded-lg text-red-600 dark:text-red-400">
               <ShieldAlert className="w-5 h-5 animate-pulse" />
@@ -108,7 +108,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
-              className="p-1.5 text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] rounded-md transition-colors"
+              className="p-1.5 text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] rounded-md transition-colors"
               aria-label="Close alert modal"
             >
               <X className="w-5 h-5" />
@@ -117,14 +117,14 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Filter Toolbar */}
-        <div className="px-6 py-3 border-b border-[var(--border)] dark:border-[#243557] bg-[var(--bg)] dark:bg-[#12203A] flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="px-6 py-3 border-b border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#121214] flex flex-wrap items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => setActiveFilter('ALL')}
               className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
                 activeFilter === 'ALL'
                   ? 'bg-[var(--blue)] text-white shadow-xs'
-                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024]'
               }`}
             >
               All Alerts ({pendingAlerts.length})
@@ -134,7 +134,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
               className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
                 activeFilter === 'CRITICAL'
                   ? 'bg-red-600 text-white shadow-xs'
-                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024]'
               }`}
             >
               Critical ({criticalCount})
@@ -144,7 +144,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
               className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
                 activeFilter === 'HIGH'
                   ? 'bg-amber-600 text-white shadow-xs'
-                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024]'
               }`}
             >
               High ({highCount})
@@ -154,7 +154,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
               className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
                 activeFilter === 'ENERGY'
                   ? 'bg-purple-600 text-white shadow-xs'
-                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024]'
               }`}
             >
               Energy Waste & Drain
@@ -168,9 +168,9 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Alerts List */}
-        <div className="p-6 overflow-y-auto max-h-[60vh] space-y-4 bg-[var(--bg-secondary)]/50 dark:bg-[#0B1426]/50">
+        <div className="p-6 overflow-y-auto max-h-[60vh] space-y-4 bg-[var(--bg-secondary)]/50 dark:bg-black/50">
           {filteredAlerts.length === 0 ? (
-            <div className="text-center py-12 bg-[var(--bg)] dark:bg-[#12203A] rounded-xl border border-[var(--border)] dark:border-[#243557]">
+            <div className="text-center py-12 bg-[var(--bg)] dark:bg-[#121214] rounded-xl border border-[var(--border)] dark:border-[#27272A]">
               <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
               <h3 className="text-sm font-semibold text-[var(--text)]">All Clear</h3>
               <p className="text-xs text-[var(--text-secondary)] max-w-sm mx-auto mt-1">
@@ -185,12 +185,12 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
               return (
                 <div
                   key={alert.recommendationId}
-                  className={`p-4 rounded-xl border transition-all bg-[var(--bg)] dark:bg-[#12203A] ${
+                  className={`p-4 rounded-xl border transition-all bg-[var(--bg)] dark:bg-[#121214] ${
                     isCritical
                       ? 'border-red-300 dark:border-red-900/60 shadow-xs ring-1 ring-red-500/10'
                       : isHigh
                       ? 'border-amber-300 dark:border-amber-900/60 shadow-xs'
-                      : 'border-[var(--border)] dark:border-[#243557]'
+                      : 'border-[var(--border)] dark:border-[#27272A]'
                   }`}
                 >
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
@@ -211,7 +211,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
                         {alert.roomId && (
                           <button
                             onClick={() => inspectRoom(alert.roomId)}
-                            className="px-2 py-0.5 text-xs font-mono font-medium rounded-md bg-[var(--bg-secondary)] dark:bg-[#182A4A] text-[var(--text)] hover:underline flex items-center gap-1 border border-[var(--border)] dark:border-[#334B7A]"
+                            className="px-2 py-0.5 text-xs font-mono font-medium rounded-md bg-[var(--bg-secondary)] dark:bg-[#18181B] text-[var(--text)] hover:underline flex items-center gap-1 border border-[var(--border)] dark:border-[#383842]"
                           >
                             <span>{alert.roomId}</span>
                             <ArrowRight className="w-3 h-3 text-[var(--text-secondary)]" />
@@ -235,7 +235,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
 
                       {/* Evidence / Metrics row */}
                       <div className="flex flex-wrap items-center gap-3 pt-1 text-xs">
-                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-secondary)] dark:bg-[#0E1A30] border border-[var(--border)] dark:border-[#243557]">
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-secondary)] dark:bg-[#18181B] border border-[var(--border)] dark:border-[#27272A]">
                           <Zap className="w-3.5 h-3.5 text-amber-500" />
                           <span className="text-[var(--text-secondary)]">Current:</span>
                           <span className="font-semibold text-[var(--text)] font-mono">
@@ -260,7 +260,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
                     </div>
 
                     {/* Action Buttons: 3 Pillars (Approve, Reject, False Alarm) */}
-                    <div className="flex flex-row md:flex-col gap-2 shrink-0 justify-end pt-2 md:pt-0 border-t md:border-t-0 border-[var(--border)] dark:border-[#243557]">
+                    <div className="flex flex-row md:flex-col gap-2 shrink-0 justify-end pt-2 md:pt-0 border-t md:border-t-0 border-[var(--border)] dark:border-[#27272A]">
                       <button
                         onClick={() => handleAction(alert.recommendationId, 'APPROVE', alert.title)}
                         className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-1.5 shadow-xs transition-colors"
@@ -272,7 +272,7 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
 
                       <button
                         onClick={() => handleAction(alert.recommendationId, 'REJECT', alert.title)}
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[var(--bg-secondary)] hover:bg-red-50 text-red-600 dark:text-red-400 dark:bg-[#182A4A] dark:hover:bg-red-950/50 border border-[var(--border)] dark:border-[#243557] flex items-center justify-center gap-1.5 transition-colors"
+                        className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[var(--bg-secondary)] hover:bg-red-50 text-red-600 dark:text-red-400 dark:bg-[#18181B] dark:hover:bg-red-950/50 border border-[var(--border)] dark:border-[#27272A] flex items-center justify-center gap-1.5 transition-colors"
                         title="Reject action"
                       >
                         <XCircle className="w-3.5 h-3.5" />
@@ -297,13 +297,13 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-[var(--border)] dark:border-[#243557] bg-[var(--bg-secondary)] dark:bg-[#0E1A30] flex items-center justify-between text-xs">
+        <div className="px-6 py-3 border-t border-[var(--border)] dark:border-[#27272A] bg-[var(--bg-secondary)] dark:bg-[#18181B] flex items-center justify-between text-xs">
           <span className="text-[var(--text-secondary)]">
             Actions update room telemetry states and append to tamper-evident audit log.
           </span>
           <button
             onClick={onClose}
-            className="px-4 py-2 font-medium rounded-lg bg-[var(--bg)] dark:bg-[#182A4A] border border-[var(--border)] dark:border-[#334B7A] text-[var(--text)] hover:bg-[var(--bg-hover)] transition-colors"
+            className="px-4 py-2 font-medium rounded-lg bg-[var(--bg)] dark:bg-[#18181B] border border-[var(--border)] dark:border-[#383842] text-[var(--text)] hover:bg-[var(--bg-hover)] transition-colors"
           >
             Close Alert Center
           </button>
@@ -311,8 +311,8 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
 
         {/* Reason / Confirmation Sub-modal */}
         {actionCommentPrompt && (
-          <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-xl p-5 max-w-md w-full shadow-2xl dark:bg-[#12203A] dark:border-[#243557] space-y-4">
+          <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-xl p-5 max-w-md w-full shadow-2xl dark:bg-[#121214] dark:border-[#27272A] space-y-4">
               <div className="flex items-center gap-2">
                 {actionCommentPrompt.action === 'APPROVE' && (
                   <CheckCircle2 className="w-5 h-5 text-emerald-500" />
@@ -346,14 +346,14 @@ export const AlertPopupModal: React.FC<AlertPopupModalProps> = ({ isOpen, onClos
                       ? 'e.g., Sensor drifted; verified room is in regular lab use.'
                       : 'e.g., Approved after checking with lab supervisor.'
                   }
-                  className="w-full text-xs p-2.5 rounded-lg border border-[var(--border)] dark:border-[#334B7A] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)] focus:outline-hidden focus:ring-2 focus:ring-[var(--blue)] resize-none h-20"
+                  className="w-full text-xs p-2.5 rounded-lg border border-[var(--border)] dark:border-[#383842] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)] focus:outline-hidden focus:ring-2 focus:ring-[var(--blue)] resize-none h-20"
                 />
               </div>
 
               <div className="flex items-center justify-end gap-2 pt-2">
                 <button
                   onClick={() => setActionCommentPrompt(null)}
-                  className="px-3 py-1.5 text-xs rounded-lg border border-[var(--border)] dark:border-[#334B7A] text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]"
+                  className="px-3 py-1.5 text-xs rounded-lg border border-[var(--border)] dark:border-[#383842] text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]"
                 >
                   Cancel
                 </button>

@@ -68,19 +68,19 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#202124]/40 backdrop-blur-xs animate-in fade-in duration-100">
-      <div className="bg-white dark:bg-[#12203A] rounded-[12px] border border-[#E8E8E6] dark:border-[#243557] max-w-[520px] w-full p-6 space-y-4 shadow-[0_8px_32px_rgba(32,33,36,0.16)] text-[#202124] dark:text-[#F5F0E6]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in duration-100">
+      <div className="bg-white dark:bg-[#121214] rounded-[12px] border border-[#E8E8E6] dark:border-[#27272A] max-w-[520px] w-full p-6 space-y-4 shadow-2xl text-[#202124] dark:text-[#F4F4F6]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#E8E8E6] dark:border-[#243557] pb-3">
+        <div className="flex items-center justify-between border-b border-[#E8E8E6] dark:border-[#27272A] pb-3">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#FFF1D6] dark:bg-[#451A03] text-[#8A5A00] dark:text-[#FCD34D] flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#FFF1D6] dark:bg-[#2B1905] text-[#8A5A00] dark:text-[#FCD34D] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-4 h-4" />
             </div>
             <div>
               <h3 className="text-[15px] font-semibold">
                 Remediate Quarantined Record #{record.rowIndex}
               </h3>
-              <p className="text-[11px] text-[#737373] dark:text-[#AEB8CC]">
+              <p className="text-[11px] text-[#737373] dark:text-[#A1A1AA]">
                 Manually edit invalid values to re-validate and admit into campus engines
               </p>
             </div>
@@ -91,7 +91,7 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
         </div>
 
         {/* Existing Rejection Reasons */}
-        <div className="p-2.5 rounded-[6px] bg-[#FCE4E4] dark:bg-[#450A0A] border border-[#D92D20]/40 text-[#B42318] dark:text-[#FCA5A5] text-[12px] space-y-1">
+        <div className="p-2.5 rounded-[6px] bg-[#FCE4E4] dark:bg-[#320C0C] border border-[#D92D20]/40 text-[#B42318] dark:text-[#FCA5A5] text-[12px] space-y-1">
           <div className="font-semibold flex items-center gap-1.5">
             <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
             <span>Quarantine / Rejection Reasons:</span>
@@ -115,7 +115,7 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
                 type="text"
                 value={readingId}
                 onChange={(e) => setReadingId(e.target.value)}
-                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
               />
             </div>
 
@@ -124,7 +124,7 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
               <select
                 value={roomId}
                 onChange={(e) => setRoomId(e.target.value)}
-                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
               >
                 {knownRooms.map((r) => (
                   <option key={r.roomId} value={r.roomId}>
@@ -141,7 +141,7 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
               <button
                 type="button"
                 onClick={setTimestampNow}
-                className="text-[11px] text-[#3478D4] dark:text-[#7DD3FC] hover:underline flex items-center gap-1 font-mono"
+                className="text-[11px] text-[#3478D4] dark:text-[#60A5FA] hover:underline flex items-center gap-1 font-mono"
               >
                 <RefreshCw className="w-3 h-3" />
                 <span>Use Current Timestamp</span>
@@ -151,7 +151,7 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
               type="text"
               value={timestamp}
               onChange={(e) => setTimestamp(e.target.value)}
-              className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+              className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
             />
           </div>
 
@@ -165,9 +165,9 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
                 max="50"
                 value={powerKw}
                 onChange={(e) => setPowerKw(e.target.value)}
-                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
               />
-              <span className="text-[10px] text-[#737373] dark:text-[#AEB8CC] mt-0.5 block">
+              <span className="text-[10px] text-[#737373] dark:text-[#A1A1AA] mt-0.5 block">
                 Rated circuit max: 15.0 kW
               </span>
             </div>
@@ -179,9 +179,9 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
                 value={occupancy}
                 onChange={(e) => setOccupancy(e.target.value)}
                 placeholder="0 or UNKNOWN"
-                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+                className="w-full h-[32px] px-2.5 font-mono border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
               />
-              <span className="text-[10px] text-[#737373] dark:text-[#AEB8CC] mt-0.5 block">
+              <span className="text-[10px] text-[#737373] dark:text-[#A1A1AA] mt-0.5 block">
                 Non-negative int or literal UNKNOWN
               </span>
             </div>
@@ -204,7 +204,7 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
               type="text"
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              className="w-full h-[32px] px-2.5 border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+              className="w-full h-[32px] px-2.5 border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
             />
           </div>
 
@@ -215,15 +215,15 @@ export const RemediateQuarantineModal: React.FC<RemediateQuarantineModalProps> =
               required
               value={adminReason}
               onChange={(e) => setAdminReason(e.target.value)}
-              className="w-full h-[32px] px-2.5 border rounded-[6px] bg-white dark:bg-[#0B1426] border-[#D4D4D1] dark:border-[#243557]"
+              className="w-full h-[32px] px-2.5 border rounded-[6px] bg-white dark:bg-[#18181B] border-[#D4D4D1] dark:border-[#27272A] text-[var(--text)]"
             />
           </div>
 
-          <div className="pt-3 border-t border-[#E8E8E6] dark:border-[#243557] flex items-center justify-end gap-2">
+          <div className="pt-3 border-t border-[#E8E8E6] dark:border-[#27272A] flex items-center justify-end gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="h-[32px] px-3.5 font-medium rounded-[6px] bg-white dark:bg-[#12203A] border border-[#D4D4D1] dark:border-[#243557] hover:bg-[#F1F1EF] dark:hover:bg-[#182A4A]"
+              className="h-[32px] px-3.5 font-medium rounded-[6px] bg-white dark:bg-[#18181B] border border-[#D4D4D1] dark:border-[#27272A] hover:bg-[#F1F1EF] dark:hover:bg-[#202024] text-[var(--text)]"
             >
               Cancel
             </button>

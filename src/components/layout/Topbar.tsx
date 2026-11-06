@@ -67,7 +67,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
 
   return (
     <>
-      <header className="h-[48px] bg-[var(--bg)] border-b border-[var(--border)] px-4 flex items-center justify-between gap-4 select-none shrink-0 z-30 dark:bg-[#0B1426] dark:border-[#243557] transition-colors">
+      <header className="h-[48px] bg-[var(--bg)] border-b border-[var(--border)] px-4 flex items-center justify-between gap-4 select-none shrink-0 z-30 dark:bg-black dark:border-[#27272A] transition-colors">
         {/* Left: Mobile hamburger + Search ⌘K */}
         <div className="flex items-center gap-3">
           <button
@@ -80,11 +80,11 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
 
           <button
             onClick={onOpenSearch}
-            className="flex items-center gap-2 h-[32px] px-2.5 rounded-[8px] bg-[var(--bg-secondary)] border border-[var(--border)] text-[13px] text-[var(--text-secondary)] hover:text-[var(--text)] hover:border-[var(--border-strong)] dark:bg-[#12203A] dark:border-[#243557] transition-colors w-[180px] sm:w-[240px]"
+            className="flex items-center gap-2 h-[32px] px-2.5 rounded-[8px] bg-[var(--bg-secondary)] border border-[var(--border)] text-[13px] text-[var(--text-secondary)] hover:text-[var(--text)] hover:border-[var(--border-strong)] dark:bg-[#18181B] dark:border-[#27272A] transition-colors w-[180px] sm:w-[240px]"
           >
             <Search className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
             <span className="truncate">Search rooms, loads...</span>
-            <kbd className="ml-auto font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg)] dark:bg-[#0E1A30] px-1.5 py-0.5 rounded border border-[var(--border)] dark:border-[#243557]">
+            <kbd className="ml-auto font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg)] dark:bg-[#121214] px-1.5 py-0.5 rounded border border-[var(--border)] dark:border-[#27272A]">
               ⌘K
             </kbd>
           </button>
@@ -93,7 +93,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
         {/* Right Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Campus Selector */}
-          <div className="hidden lg:flex items-center gap-1.5 text-[12px] font-medium text-[var(--text-secondary)] bg-[var(--bg-secondary)] dark:bg-[#12203A] px-2.5 py-1 rounded-[6px] border border-[var(--border)] dark:border-[#243557]">
+          <div className="hidden lg:flex items-center gap-1.5 text-[12px] font-medium text-[var(--text-secondary)] bg-[var(--bg-secondary)] dark:bg-[#18181B] px-2.5 py-1 rounded-[6px] border border-[var(--border)] dark:border-[#27272A]">
             <span className="w-2 h-2 rounded-full bg-[#2F9E5B]" />
             <span>SRMIST Demo Campus (simulated)</span>
           </div>
@@ -125,8 +125,8 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
             </button>
 
             {scenariosOpen && (
-              <div className="absolute right-0 mt-1.5 w-[310px] bg-[var(--bg)] dark:bg-[#12203A] rounded-[10px] border border-[var(--border)] dark:border-[#243557] shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
-                <div className="px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border)] dark:border-[#243557] mb-1">
+              <div className="absolute right-0 mt-1.5 w-[310px] bg-[var(--bg)] dark:bg-[#18181B] rounded-[10px] border border-[var(--border)] dark:border-[#27272A] shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
+                <div className="px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border)] dark:border-[#27272A] mb-1">
                   5 Test Scenarios (MASTER §18)
                 </div>
 
@@ -136,7 +136,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                       loadScenario(1);
                       setScenariosOpen(false);
                     }}
-                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors flex items-start gap-2 ${
+                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors flex items-start gap-2 ${
                       activeScenarioId === 'scenario-1' ? 'bg-[var(--blue-light)] text-[var(--blue-text)]' : 'text-[var(--text)]'
                     }`}
                   >
@@ -152,7 +152,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                       loadScenario(2);
                       setScenariosOpen(false);
                     }}
-                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors flex items-start gap-2 ${
+                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors flex items-start gap-2 ${
                       activeScenarioId === 'scenario-2' ? 'bg-[#FCE4E4] text-[#B42318] dark:bg-red-950/60 dark:text-red-300' : 'text-[var(--text)]'
                     }`}
                   >
@@ -168,7 +168,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                       loadScenario(3);
                       setScenariosOpen(false);
                     }}
-                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors flex items-start gap-2 ${
+                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors flex items-start gap-2 ${
                       activeScenarioId === 'scenario-3' ? 'bg-[#EEE7FA] text-[#5B3FA8] dark:bg-purple-950/60 dark:text-purple-300' : 'text-[var(--text)]'
                     }`}
                   >
@@ -184,7 +184,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                       loadScenario(4);
                       setScenariosOpen(false);
                     }}
-                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors flex items-start gap-2 ${
+                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors flex items-start gap-2 ${
                       activeScenarioId === 'scenario-4' ? 'bg-[#FFF1D6] text-[#8A5A00] dark:bg-amber-950/60 dark:text-amber-300' : 'text-[var(--text)]'
                     }`}
                   >
@@ -200,7 +200,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                       loadScenario(5);
                       setScenariosOpen(false);
                     }}
-                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors flex items-start gap-2 ${
+                    className={`w-full text-left p-2 rounded-[6px] text-[12px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors flex items-start gap-2 ${
                       activeScenarioId === 'scenario-5' ? 'bg-[#DDF3E4] text-[#1E6B3A] dark:bg-emerald-950/60 dark:text-emerald-300' : 'text-[var(--text)]'
                     }`}
                   >
@@ -218,7 +218,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
           {/* Light / Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="w-8 h-8 rounded-[8px] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors border border-transparent hover:border-[var(--border)] dark:hover:border-[#243557]"
+            className="w-8 h-8 rounded-[8px] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors border border-transparent hover:border-[var(--border)] dark:hover:border-[#27272A]"
             title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
             aria-label="Toggle color theme"
           >
@@ -233,7 +233,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
           <div className="relative" ref={notifRef}>
             <button
               onClick={() => setNotificationsOpen(!notificationsOpen)}
-              className="w-8 h-8 rounded-[8px] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors relative"
+              className="w-8 h-8 rounded-[8px] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors relative"
               aria-label="Notifications"
             >
               <Bell className="w-4 h-4" />
@@ -243,8 +243,8 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
             </button>
 
             {notificationsOpen && (
-              <div className="absolute right-0 mt-1.5 w-[320px] bg-[var(--bg)] dark:bg-[#12203A] rounded-[10px] border border-[var(--border)] dark:border-[#243557] shadow-xl p-2 z-50 animate-in fade-in duration-100">
-                <div className="px-2 py-1 flex items-center justify-between border-b border-[var(--border)] dark:border-[#243557] mb-1">
+              <div className="absolute right-0 mt-1.5 w-[320px] bg-[var(--bg)] dark:bg-[#18181B] rounded-[10px] border border-[var(--border)] dark:border-[#27272A] shadow-xl p-2 z-50 animate-in fade-in duration-100">
+                <div className="px-2 py-1 flex items-center justify-between border-b border-[var(--border)] dark:border-[#27272A] mb-1">
                   <span className="text-[12px] font-semibold text-[var(--text)]">
                     Notifications & Alerts
                   </span>
@@ -253,7 +253,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                   </span>
                 </div>
 
-                <div className="divide-y divide-[var(--border)] dark:divide-[#243557] max-h-[260px] overflow-y-auto">
+                <div className="divide-y divide-[var(--border)] dark:divide-[#27272A] max-h-[260px] overflow-y-auto">
                   {latestAlerts.length > 0 ? (
                     latestAlerts.map((rec) => (
                       <div
@@ -262,7 +262,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                           setAlertPopupOpen(true);
                           setNotificationsOpen(false);
                         }}
-                        className="p-2 hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] cursor-pointer rounded-[6px] transition-colors text-left"
+                        className="p-2 hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] cursor-pointer rounded-[6px] transition-colors text-left"
                       >
                         <div className="text-[12px] font-medium text-[var(--text)] truncate">
                           {rec.title}
@@ -279,7 +279,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                   )}
                 </div>
 
-                <div className="border-t border-[var(--border)] dark:border-[#243557] pt-1 mt-1 text-center">
+                <div className="border-t border-[var(--border)] dark:border-[#27272A] pt-1 mt-1 text-center">
                   <button
                     onClick={() => {
                       setAlertPopupOpen(true);
@@ -297,7 +297,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
           {/* Reset Demo Button */}
           <button
             onClick={() => setIsResetDialogOpen(true)}
-            className="h-[32px] px-2.5 rounded-[8px] border border-[var(--border)] dark:border-[#243557] bg-[var(--bg)] dark:bg-[#12203A] text-[var(--text-secondary)] hover:text-[#B42318] hover:border-[#D92D20]/40 text-[12px] font-medium flex items-center gap-1.5 transition-colors"
+            className="h-[32px] px-2.5 rounded-[8px] border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text-secondary)] hover:text-[#B42318] hover:border-[#D92D20]/40 text-[12px] font-medium flex items-center gap-1.5 transition-colors"
             title="Reset simulation state to pristine seed data"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -308,7 +308,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
           <div className="relative" ref={userRef}>
             <button
               onClick={() => setUserMenuOpen(!userMenuOpen)}
-              className="flex items-center gap-1.5 h-[32px] px-2 rounded-[8px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors text-[var(--text)]"
+              className="flex items-center gap-1.5 h-[32px] px-2 rounded-[8px] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors text-[var(--text)]"
             >
               <div className="w-6 h-6 rounded-full bg-[var(--blue-light)] text-[var(--blue-text)] font-semibold text-[11px] flex items-center justify-center font-mono">
                 AD
@@ -318,8 +318,8 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
             </button>
 
             {userMenuOpen && (
-              <div className="absolute right-0 mt-1.5 w-[200px] bg-[var(--bg)] dark:bg-[#12203A] rounded-[10px] border border-[var(--border)] dark:border-[#243557] shadow-xl p-1 z-50">
-                <div className="px-3 py-2 border-b border-[var(--border)] dark:border-[#243557]">
+              <div className="absolute right-0 mt-1.5 w-[200px] bg-[var(--bg)] dark:bg-[#18181B] rounded-[10px] border border-[var(--border)] dark:border-[#27272A] shadow-xl p-1 z-50">
+                <div className="px-3 py-2 border-b border-[var(--border)] dark:border-[#27272A]">
                   <div className="text-[12px] font-semibold text-[var(--text)]">
                     {currentUser?.name || 'Administrator'}
                   </div>
@@ -334,7 +334,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                       setActivePage('settings');
                       setUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-[12px] text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] rounded-[6px]"
+                    className="w-full text-left px-3 py-1.5 text-[12px] text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] rounded-[6px]"
                   >
                     Settings & Profile
                   </button>
@@ -349,13 +349,13 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }
                   </button>
                 </div>
 
-                <div className="border-t border-[var(--border)] dark:border-[#243557] pt-1">
+                <div className="border-t border-[var(--border)] dark:border-[#27272A] pt-1">
                   <button
                     onClick={() => {
                       logout();
                       setUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-[12px] text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] rounded-[6px]"
+                    className="w-full text-left px-3 py-1.5 text-[12px] text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] rounded-[6px]"
                   >
                     Logout
                   </button>

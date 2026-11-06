@@ -386,11 +386,11 @@ export const DataIntegrity: React.FC = () => {
                     <th className="p-2.5 text-right">Admin Remediation</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E8E8E6] dark:divide-[#243557]">
+                <tbody className="divide-y divide-[var(--border)] dark:divide-[#27272A]">
                   {filteredRecords.map((r) => (
-                    <tr key={r.rowIndex} className="hover:bg-[#F7F7F5] dark:hover:bg-[#182A4A] transition-colors">
+                    <tr key={r.rowIndex} className="hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22] transition-colors">
                       <td className="p-2.5 font-mono text-[#737373]">{r.rowIndex}</td>
-                      <td className="p-2.5 font-mono font-semibold text-[#202124] dark:text-[#F5F0E6]">{r.recordRef}</td>
+                      <td className="p-2.5 font-mono font-semibold text-[#202124] dark:text-[#F4F4F6]">{r.recordRef}</td>
                       <td className="p-2.5">
                         <span
                           className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded uppercase ${

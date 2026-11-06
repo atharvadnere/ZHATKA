@@ -41,7 +41,7 @@ const AppContent: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)] dark:bg-[#0B1426] flex flex-col antialiased text-[var(--text)] transition-colors">
+    <div className="min-h-screen bg-[var(--bg-secondary)] dark:bg-black flex flex-col antialiased text-[var(--text)] transition-colors">
       {/* 28px Notice Strip (DESIGN.md §4) */}
       <NoticeStrip />
 
@@ -54,17 +54,17 @@ const AppContent: React.FC = () => {
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-50 flex md:hidden">
             <div
-              className="fixed inset-0 bg-black/50 backdrop-blur-xs"
+              className="fixed inset-0 bg-black/70 backdrop-blur-xs"
               onClick={() => setMobileMenuOpen(false)}
             />
-            <div className="relative z-10 w-[260px] bg-[var(--bg-sidebar)] dark:bg-[#0E1A30] h-full shadow-lg">
+            <div className="relative z-10 w-[260px] bg-[var(--bg-sidebar)] dark:bg-[#101012] h-full shadow-lg">
               <Sidebar onCloseMobile={() => setMobileMenuOpen(false)} />
             </div>
           </div>
         )}
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[var(--bg)] dark:bg-[#0B1426]">
+        <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[var(--bg)] dark:bg-black">
           {/* Top Bar (48px) */}
           <Topbar
             onOpenMobileMenu={() => setMobileMenuOpen(true)}
@@ -112,14 +112,14 @@ const AppContent: React.FC = () => {
         <div
           role="status"
           aria-live="polite"
-          className={`fixed bottom-4 right-4 z-50 px-4 py-2.5 rounded-[8px] bg-[var(--bg)] dark:bg-[#12203A] border text-[13px] font-medium shadow-[0_4px_16px_rgba(0,0,0,0.2)] flex items-center gap-2.5 animate-in slide-in-from-bottom-2 duration-150 ${
+          className={`fixed bottom-4 right-4 z-50 px-4 py-2.5 rounded-[8px] bg-[var(--bg)] dark:bg-[#18181B] border text-[13px] font-medium shadow-[0_4px_16px_rgba(0,0,0,0.5)] flex items-center gap-2.5 animate-in slide-in-from-bottom-2 duration-150 ${
             toast.type === 'critical'
               ? 'border-[#D92D20] text-[#B42318] dark:text-red-400'
               : toast.type === 'warning'
               ? 'border-[#E0A03A] text-[#8A5A00] dark:text-amber-400'
               : toast.type === 'success'
               ? 'border-[#2F9E5B] text-[#1E6B3A] dark:text-emerald-400'
-              : 'border-[var(--border)] dark:border-[#243557] text-[var(--text)]'
+              : 'border-[var(--border)] dark:border-[#27272A] text-[var(--text)]'
           }`}
         >
           <span>{toast.message}</span>

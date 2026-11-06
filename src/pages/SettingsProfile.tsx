@@ -108,7 +108,7 @@ export const SettingsProfile: React.FC = () => {
       {activeTab === 'profile' && (
         <div className="space-y-4">
           {/* User Persona Profile Card */}
-          <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-6 space-y-4 transition-colors">
+          <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-6 space-y-4 transition-colors">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-[var(--blue-light)] text-[var(--blue-text)] flex items-center justify-center font-mono font-bold text-[20px] shadow-xs">
                 AD
@@ -131,20 +131,20 @@ export const SettingsProfile: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-[var(--border)] dark:border-[#243557] text-xs">
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-[var(--border)] dark:border-[#27272A] text-xs">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Campus Facility</span>
                 <div className="font-semibold text-[var(--text)] mt-0.5">
                   {currentUser?.campus || 'SRMIST Main Campus'}
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Access Level</span>
                 <div className="font-semibold text-[var(--blue-text)] mt-0.5">
                   Tier-1 Super Administrator
                 </div>
               </div>
-              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557]">
+              <div className="p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A]">
                 <span className="text-[var(--text-secondary)]">Authentication Type</span>
                 <div className="font-semibold text-[var(--text)] mt-0.5 font-mono">
                   Demo Session (Simulated)
@@ -154,7 +154,7 @@ export const SettingsProfile: React.FC = () => {
           </div>
 
           {/* Prototype Boundaries & Legal Disclaimers (MASTER §24) */}
-          <div className="p-4 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] space-y-2 text-xs text-[var(--text-secondary)]">
+          <div className="p-4 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] space-y-2 text-xs text-[var(--text-secondary)]">
             <div className="flex items-center gap-2 font-semibold text-[var(--text)]">
               <Shield className="w-4 h-4 text-[var(--blue-text)]" />
               <span>Safety Engine Guardrails & Human-in-the-Loop Governance</span>
@@ -191,7 +191,7 @@ export const SettingsProfile: React.FC = () => {
             {customScenarios.map((sc) => (
               <div
                 key={sc.id}
-                className="p-4 rounded-xl border border-[var(--border)] dark:border-[#243557] bg-[var(--bg)] dark:bg-[#12203A] flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors"
+                className="p-4 rounded-xl border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#121214] flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
@@ -212,14 +212,14 @@ export const SettingsProfile: React.FC = () => {
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={() => setEditingScenario(sc)}
-                    className="p-1.5 text-xs rounded-lg border border-[var(--border)] dark:border-[#334B7A] hover:bg-[var(--bg-hover)] text-[var(--text)]"
+                    className="p-1.5 text-xs rounded-lg border border-[var(--border)] dark:border-[#27272A] hover:bg-[var(--bg-hover)] text-[var(--text)]"
                     title="Edit scenario parameters"
                   >
                     <Edit2 className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={() => deleteCustomScenario(sc.id)}
-                    className="p-1.5 text-xs rounded-lg border border-red-200 dark:border-red-900 hover:bg-red-50 text-red-600 dark:text-red-400"
+                    className="p-1.5 text-xs rounded-lg border border-red-200 dark:border-red-900/60 hover:bg-red-50 dark:hover:bg-red-950/40 text-red-600 dark:text-red-400"
                     title="Delete custom scenario"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -239,8 +239,8 @@ export const SettingsProfile: React.FC = () => {
 
       {/* 3. RULE THRESHOLDS TAB */}
       {activeTab === 'thresholds' && (
-        <form onSubmit={handleSaveSettings} className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-5 space-y-4 transition-colors">
-          <div className="border-b border-[var(--border)] dark:border-[#243557] pb-3">
+        <form onSubmit={handleSaveSettings} className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-5 space-y-4 transition-colors">
+          <div className="border-b border-[var(--border)] dark:border-[#27272A] pb-3">
             <h3 className="text-[14px] font-semibold text-[var(--text)]">
               Rule Engine Thresholds (MASTER §7 & §14)
             </h3>
@@ -258,7 +258,7 @@ export const SettingsProfile: React.FC = () => {
                 type="number"
                 value={freshness}
                 onChange={(e) => setFreshness(Number(e.target.value))}
-                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#334B7A] rounded-[8px] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#27272A] rounded-[8px] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
               />
               <span className="text-[11px] text-[var(--text-secondary)] mt-0.5 block">
                 Readings older than this threshold trigger STALE_DATA and UNKNOWN status.
@@ -274,7 +274,7 @@ export const SettingsProfile: React.FC = () => {
                 step="0.1"
                 value={highRatio}
                 onChange={(e) => setHighRatio(Number(e.target.value))}
-                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#334B7A] rounded-[8px] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#27272A] rounded-[8px] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
               />
               <span className="text-[11px] text-[var(--text-secondary)] mt-0.5 block">
                 Triggers HIGH_USAGE inspection flag when power exceeds baseline by this ratio.
@@ -290,7 +290,7 @@ export const SettingsProfile: React.FC = () => {
                 step="0.1"
                 value={emptyMinKw}
                 onChange={(e) => setEmptyMinKw(Number(e.target.value))}
-                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#334B7A] rounded-[8px] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#27272A] rounded-[8px] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
               />
               <span className="text-[11px] text-[var(--text-secondary)] mt-0.5 block">
                 Triggers EMPTY_BUT_CONSUMING when room verified empty draws above idle.
@@ -306,7 +306,7 @@ export const SettingsProfile: React.FC = () => {
                 step="0.1"
                 value={residualKw}
                 onChange={(e) => setResidualKw(Number(e.target.value))}
-                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#334B7A] rounded-[8px] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                className="w-full h-[34px] px-3 font-mono text-[13px] border border-[var(--border)] dark:border-[#27272A] rounded-[8px] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
               />
               <span className="text-[11px] text-[var(--text-secondary)] mt-0.5 block">
                 Residual power after simulated shutdown (MASTER §11.2, default +0.3 kW).
@@ -325,15 +325,15 @@ export const SettingsProfile: React.FC = () => {
         </form>
       )}
 
-      {/* 4. APPEARANCE & THEME TAB (Requirement 3) */}
+      {/* 4. APPEARANCE & THEME TAB (Requirement 3 & 5) */}
       {activeTab === 'appearance' && (
-        <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-6 space-y-5 transition-colors">
+        <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-6 space-y-5 transition-colors">
           <div>
             <h3 className="text-sm font-semibold text-[var(--text)]">
               Color Theme & Contrast Modes
             </h3>
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-              Switch between Institutional Clean Light and Control Room Dark Navy themes.
+              Switch between Institutional Clean Light and AMOLED Black themes.
             </p>
           </div>
 
@@ -345,21 +345,21 @@ export const SettingsProfile: React.FC = () => {
               }}
               className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                 theme === 'light'
-                  ? 'border-[var(--blue)] bg-blue-50/50 shadow-sm ring-1 ring-[var(--blue)]'
-                  : 'border-[var(--border)] dark:border-[#243557] hover:border-slate-400'
+                  ? 'border-[var(--blue)] bg-blue-50/50 dark:bg-blue-950/20 shadow-sm ring-1 ring-[var(--blue)]'
+                  : 'border-[var(--border)] dark:border-[#27272A] hover:border-slate-400'
               }`}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <Sun className="w-5 h-5 text-amber-500" />
-                  <span className="font-semibold text-sm text-slate-900">Institutional Light</span>
+                  <span className="font-semibold text-sm text-[var(--text)]">Institutional Light</span>
                 </div>
                 {theme === 'light' && (
                   <CheckCircle className="w-4 h-4 text-[var(--blue)]" />
                 )}
               </div>
-              <div className="p-3 bg-white rounded-lg border border-slate-200 text-xs text-slate-700 space-y-1">
-                <div className="font-semibold text-slate-900">High-legibility daytime palette</div>
+              <div className="p-3 bg-white dark:bg-[#18181B] rounded-lg border border-slate-200 dark:border-[#27272A] text-xs text-slate-700 dark:text-zinc-300 space-y-1">
+                <div className="font-semibold text-slate-900 dark:text-white">High-legibility daytime palette</div>
                 <div>Off-white surfaces (#F7F7F5) with crisp contrast lines (#E8E8E6).</div>
               </div>
             </div>
@@ -371,22 +371,22 @@ export const SettingsProfile: React.FC = () => {
               }}
               className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                 theme === 'dark'
-                  ? 'border-[#38BDF8] bg-[#0E1A30] shadow-sm ring-1 ring-[#38BDF8]'
-                  : 'border-[var(--border)] dark:border-[#243557] hover:border-slate-400'
+                  ? 'border-[#38BDF8] bg-black shadow-sm ring-1 ring-[#38BDF8]'
+                  : 'border-[var(--border)] dark:border-[#27272A] hover:border-zinc-500'
               }`}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <Moon className="w-5 h-5 text-sky-400" />
-                  <span className="font-semibold text-sm text-slate-100">Control Room Dark Navy</span>
+                  <span className="font-semibold text-sm text-slate-900 dark:text-[#F4F4F6]">AMOLED Black & Subtle Grey</span>
                 </div>
                 {theme === 'dark' && (
                   <CheckCircle className="w-4 h-4 text-[#38BDF8]" />
                 )}
               </div>
-              <div className="p-3 bg-[#0B1426] rounded-lg border border-[#243557] text-xs text-slate-300 space-y-1">
-                <div className="font-semibold text-sky-300">Operations Control Center</div>
-                <div>Deep navy surfaces (#0B1426) designed for continuous monitoring.</div>
+              <div className="p-3 bg-black rounded-lg border border-[#27272A] text-xs text-zinc-300 space-y-1">
+                <div className="font-semibold text-sky-400">Operations Control Center</div>
+                <div>True pure black (#000000) backdrop with elevated subtle grey blocks (#121214) and crisp contrast.</div>
               </div>
             </div>
           </div>
@@ -395,7 +395,7 @@ export const SettingsProfile: React.FC = () => {
 
       {/* 5. SYSTEM & RESET TAB */}
       {activeTab === 'system' && (
-        <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-6 space-y-4 transition-colors">
+        <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-6 space-y-4 transition-colors">
           <div>
             <h3 className="text-sm font-semibold text-[var(--text)]">
               Simulation State Reset & Audit
@@ -405,13 +405,13 @@ export const SettingsProfile: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-4 rounded-xl border border-red-200 dark:border-red-900 bg-red-50/50 dark:bg-red-950/30 flex items-center justify-between flex-wrap gap-4">
+          <div className="p-4 rounded-xl border border-red-200 dark:border-red-900/60 bg-red-50/50 dark:bg-red-950/20 flex items-center justify-between flex-wrap gap-4">
             <div>
               <div className="font-semibold text-sm text-red-800 dark:text-red-300">
                 Pristine Demonstration Seed Reset
               </div>
               <div className="text-xs text-red-600 dark:text-red-400 mt-0.5">
-                Restores rooms, loads, bookings, and rule configs. Requires confirmation keyword.
+                Restores rooms, loads, bookings, equipment protections, and rule configs. Requires confirmation keyword.
               </div>
             </div>
             <button
@@ -427,8 +427,8 @@ export const SettingsProfile: React.FC = () => {
 
       {/* Scenario Editor Dialog */}
       {editingScenario && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-xl p-6 max-w-md w-full shadow-2xl space-y-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+          <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-xl p-6 max-w-md w-full shadow-2xl space-y-4">
             <h3 className="text-base font-semibold text-[var(--text)]">
               Edit Emergency Scenario
             </h3>
@@ -441,7 +441,7 @@ export const SettingsProfile: React.FC = () => {
                   required
                   value={editingScenario.name}
                   onChange={(e) => setEditingScenario({ ...editingScenario, name: e.target.value })}
-                  className="w-full h-8 px-2 rounded-md border border-[var(--border)] dark:border-[#334B7A] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                  className="w-full h-8 px-2 rounded-md border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
                 />
               </div>
 
@@ -451,7 +451,7 @@ export const SettingsProfile: React.FC = () => {
                   rows={2}
                   value={editingScenario.description}
                   onChange={(e) => setEditingScenario({ ...editingScenario, description: e.target.value })}
-                  className="w-full p-2 rounded-md border border-[var(--border)] dark:border-[#334B7A] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                  className="w-full p-2 rounded-md border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
                 />
               </div>
 
@@ -463,7 +463,7 @@ export const SettingsProfile: React.FC = () => {
                     step="0.1"
                     value={editingScenario.multiplier}
                     onChange={(e) => setEditingScenario({ ...editingScenario, multiplier: Number(e.target.value) || 1.0 })}
-                    className="w-full h-8 px-2 font-mono rounded-md border border-[var(--border)] dark:border-[#334B7A] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                    className="w-full h-8 px-2 font-mono rounded-md border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
                   />
                 </div>
                 <div>
@@ -473,16 +473,16 @@ export const SettingsProfile: React.FC = () => {
                     step="5"
                     value={editingScenario.capacityPercent}
                     onChange={(e) => setEditingScenario({ ...editingScenario, capacityPercent: Number(e.target.value) || 50 })}
-                    className="w-full h-8 px-2 font-mono rounded-md border border-[var(--border)] dark:border-[#334B7A] bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)]"
+                    className="w-full h-8 px-2 font-mono rounded-md border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
                   />
                 </div>
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[var(--border)] dark:border-[#243557]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[var(--border)] dark:border-[#27272A]">
                 <button
                   type="button"
                   onClick={() => setEditingScenario(null)}
-                  className="px-3 py-1.5 rounded-lg border border-[var(--border)] dark:border-[#334B7A] text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]"
+                  className="px-3 py-1.5 rounded-lg border border-[var(--border)] dark:border-[#27272A] text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]"
                 >
                   Cancel
                 </button>

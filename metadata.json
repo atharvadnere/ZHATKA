@@ -2,5 +2,7 @@
   "name": "ZHATKA — Adaptive Campus Energy Response Planner",
   "description": "Safety-first campus energy intelligence and emergency resource planner for occupancy-aware load management, essential equipment protection, and data integrity.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

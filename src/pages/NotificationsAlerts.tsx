@@ -64,12 +64,12 @@ export const NotificationsAlerts: React.FC = () => {
         {/* Left Filter & Alert List */}
         <div className="lg:col-span-5 space-y-3">
           {/* Priority Filter */}
-          <div className="p-3 bg-white border border-[#E8E8E6] rounded-[8px] flex items-center justify-between">
-            <span className="text-[12px] font-medium text-[#737373]">Filter by Severity:</span>
+          <div className="p-3 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[8px] flex items-center justify-between">
+            <span className="text-[12px] font-medium text-[var(--text-secondary)]">Filter by Severity:</span>
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="h-[30px] px-2 text-[12px] border border-[#D4D4D1] rounded-[6px] bg-white"
+              className="h-[30px] px-2 text-[12px] border border-[var(--border)] dark:border-[#27272A] rounded-[6px] bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)]"
             >
               <option value="ALL">All Severities</option>
               <option value="CRITICAL">Critical (Red)</option>
@@ -92,29 +92,29 @@ export const NotificationsAlerts: React.FC = () => {
                     onClick={() => setSelectedAlertId(alert.recommendationId)}
                     className={`h-[68px] p-3 rounded-[8px] border cursor-pointer transition-all flex items-center justify-between gap-3 ${
                       isSelected
-                        ? 'border-[#3478D4] bg-[#EAF2FC]/40 shadow-xs'
-                        : 'border-[#E8E8E6] bg-white hover:bg-[#F7F7F5]'
+                        ? 'border-[var(--blue)] dark:border-[#38BDF8] bg-blue-50/50 dark:bg-[#1E293B]/70 shadow-xs'
+                        : 'border-[var(--border)] dark:border-[#27272A] bg-[var(--bg)] dark:bg-[#121214] hover:bg-[var(--bg-hover)] dark:hover:bg-[#18181B]'
                     } ${
                       isCritical
                         ? 'border-l-4 border-l-[#D92D20]'
                         : isHigh
                         ? 'border-l-4 border-l-[#E0A03A]'
-                        : 'border-l-4 border-l-[#3478D4]'
+                        : 'border-l-4 border-l-[var(--blue)] dark:border-l-[#38BDF8]'
                     }`}
                   >
                     <div className="truncate">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-[13px] text-[#202124] truncate">
+                        <span className="font-semibold text-[13px] text-[var(--text)] truncate">
                           {alert.title}
                         </span>
                       </div>
-                      <div className="text-[11px] text-[#737373] truncate mt-0.5">
+                      <div className="text-[11px] text-[var(--text-secondary)] truncate mt-0.5">
                         {alert.reason}
                       </div>
                     </div>
 
                     <div className="text-right shrink-0">
-                      <span className="text-[10px] font-mono font-bold uppercase px-1.5 py-0.5 rounded bg-[#F1F1EF] text-[#737373]">
+                      <span className="text-[10px] font-mono font-bold uppercase px-1.5 py-0.5 rounded bg-[var(--bg-secondary)] dark:bg-[#18181B] text-[var(--text-secondary)]">
                         {alert.priority}
                       </span>
                     </div>
@@ -122,7 +122,7 @@ export const NotificationsAlerts: React.FC = () => {
                 );
               })
             ) : (
-              <div className="p-8 text-center text-[13px] text-[#737373] bg-white border border-[#E8E8E6] rounded-[10px]">
+              <div className="p-8 text-center text-[13px] text-[var(--text-secondary)] bg-[var(--bg)] dark:bg-[#121214] border border-[var(--border)] dark:border-[#27272A] rounded-[10px]">
                 No alerts matching current filters.
               </div>
             )}
@@ -131,13 +131,13 @@ export const NotificationsAlerts: React.FC = () => {
 
         {/* Right Detail Pane */}
         {selectedAlert ? (
-          <div className="lg:col-span-7 bg-white border border-[#E8E8E6] rounded-[10px] p-6 space-y-4">
-            <div className="flex items-start justify-between gap-4 border-b border-[#E8E8E6] pb-3">
+          <div className="lg:col-span-7 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-6 space-y-4">
+            <div className="flex items-start justify-between gap-4 border-b border-[var(--border)] dark:border-[#27272A] pb-3">
               <div>
-                <span className="font-mono text-[11px] font-bold text-[#3478D4]">
+                <span className="font-mono text-[11px] font-bold text-[var(--blue-text)]">
                   {selectedAlert.recommendationId}
                 </span>
-                <h3 className="text-[16px] font-semibold text-[#202124] mt-0.5">
+                <h3 className="text-[16px] font-semibold text-[var(--text)] mt-0.5">
                   {selectedAlert.title}
                 </h3>
               </div>
@@ -146,25 +146,25 @@ export const NotificationsAlerts: React.FC = () => {
 
             <div className="space-y-3 text-[13px]">
               <div>
-                <div className="font-semibold text-[#202124] mb-1">Alert Description</div>
-                <p className="text-[#737373] leading-[18px]">{selectedAlert.reason}</p>
+                <div className="font-semibold text-[var(--text)] mb-1">Alert Description</div>
+                <p className="text-[var(--text-secondary)] leading-[18px]">{selectedAlert.reason}</p>
               </div>
 
               <div>
-                <div className="font-semibold text-[#202124] mb-1">Recommended Response</div>
-                <p className="text-[#202124] p-3 bg-[#F7F7F5] border border-[#E8E8E6] rounded-[8px] leading-[18px]">
+                <div className="font-semibold text-[var(--text)] mb-1">Recommended Response</div>
+                <p className="text-[var(--text)] p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] border border-[var(--border)] dark:border-[#27272A] rounded-[8px] leading-[18px]">
                   {selectedAlert.suggestedAction}
                 </p>
               </div>
 
               {selectedAlert.roomId && (
-                <div className="flex items-center justify-between p-3 bg-[#FAFAF9] border border-[#E8E8E6] rounded-[8px]">
-                  <span className="text-[#737373]">Associated Target Room:</span>
+                <div className="flex items-center justify-between p-3 bg-[var(--bg-secondary)] dark:bg-[#18181B] border border-[var(--border)] dark:border-[#27272A] rounded-[8px]">
+                  <span className="text-[var(--text-secondary)]">Associated Target Room:</span>
                   <button
                     onClick={() => {
                       setSelectedRoomId(selectedAlert.roomId!);
                     }}
-                    className="font-mono font-bold text-[#3478D4] hover:underline flex items-center gap-1"
+                    className="font-mono font-bold text-[var(--blue-text)] hover:underline flex items-center gap-1"
                   >
                     <span>{selectedAlert.roomId}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -173,7 +173,7 @@ export const NotificationsAlerts: React.FC = () => {
               )}
             </div>
 
-            <div className="pt-4 border-t border-[var(--border)] dark:border-[#243557] flex items-center justify-between flex-wrap gap-2">
+            <div className="pt-4 border-t border-[var(--border)] dark:border-[#27272A] flex items-center justify-between flex-wrap gap-2">
               <span className="text-[12px] text-[var(--text-secondary)]">
                 Evaluated: {new Date(selectedAlert.createdAt).toLocaleTimeString('en-IN')}
               </span>
@@ -187,7 +187,7 @@ export const NotificationsAlerts: React.FC = () => {
                   className="h-[32px] px-3 text-xs font-semibold rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800 flex items-center gap-1.5 transition-colors"
                   title="Mark as false alarm and dismiss"
                 >
-                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                   <span>False Alarm</span>
                 </button>
 
@@ -196,7 +196,7 @@ export const NotificationsAlerts: React.FC = () => {
                     rejectRecommendation(selectedAlert.recommendationId, 'Rejected from notifications center.');
                     handleResolve(selectedAlert.recommendationId);
                   }}
-                  className="h-[32px] px-3 text-xs font-medium rounded-lg text-red-600 bg-red-50 hover:bg-red-100 dark:bg-red-950/40 dark:text-red-400 border border-red-200 dark:border-red-900 transition-colors"
+                  className="h-[32px] px-3 text-xs font-medium rounded-lg text-red-600 bg-red-50 hover:bg-red-100 dark:bg-red-950/40 dark:text-red-400 border border-red-200 dark:border-red-900/60 transition-colors"
                 >
                   Reject
                 </button>
@@ -215,7 +215,7 @@ export const NotificationsAlerts: React.FC = () => {
                 {!resolvedIds.has(selectedAlert.recommendationId) && (
                   <button
                     onClick={() => handleResolve(selectedAlert.recommendationId)}
-                    className="h-[32px] px-3 text-xs font-medium bg-[var(--bg-secondary)] dark:bg-[#182A4A] text-[var(--text-secondary)] hover:text-[var(--text)] border border-[var(--border)] dark:border-[#334B7A] rounded-lg transition-colors"
+                    className="h-[32px] px-3 text-xs font-medium bg-[var(--bg-secondary)] dark:bg-[#18181B] text-[var(--text-secondary)] hover:text-[var(--text)] border border-[var(--border)] dark:border-[#27272A] rounded-lg transition-colors hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024]"
                   >
                     Dismiss
                   </button>

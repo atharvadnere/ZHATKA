@@ -89,14 +89,14 @@ export const AnalyticsReports: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={handleExportCsv}
-              className="h-[32px] px-3 rounded-[8px] bg-[var(--bg)] border border-[var(--border)] dark:border-[#334B7A] dark:bg-[#12203A] text-[var(--text)] hover:bg-[var(--bg-hover)] text-[12px] font-medium flex items-center gap-1.5 transition-colors shadow-xs"
+              className="h-[32px] px-3 rounded-[8px] bg-[var(--bg)] border border-[var(--border)] dark:border-[#27272A] dark:bg-[#121214] text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#18181B] text-[12px] font-medium flex items-center gap-1.5 transition-colors shadow-xs"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export 30D CSV</span>
             </button>
             <button
               onClick={handlePrintPdf}
-              className="h-[32px] px-3 rounded-[8px] bg-[var(--bg)] border border-[var(--border)] dark:border-[#334B7A] dark:bg-[#12203A] text-[var(--text)] hover:bg-[var(--bg-hover)] text-[12px] font-medium flex items-center gap-1.5 transition-colors shadow-xs"
+              className="h-[32px] px-3 rounded-[8px] bg-[var(--bg)] border border-[var(--border)] dark:border-[#27272A] dark:bg-[#121214] text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#18181B] text-[12px] font-medium flex items-center gap-1.5 transition-colors shadow-xs"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print PDF</span>
@@ -108,7 +108,7 @@ export const AnalyticsReports: React.FC = () => {
       {/* Economic & Environmental Impact Block */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Cost Estimate Box */}
-        <div className="p-5 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] space-y-3 transition-colors">
+        <div className="p-5 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] space-y-3 transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-[13px] font-semibold text-[var(--text)]">
               Estimated Monthly Avoidable Electricity Cost
@@ -123,7 +123,7 @@ export const AnalyticsReports: React.FC = () => {
             <span className="text-[13px] text-[var(--text-secondary)]">INR / 30-day intervention</span>
           </div>
 
-          <div className="text-[12px] text-[var(--text-secondary)] flex items-center justify-between pt-2 border-t border-[var(--border)] dark:border-[#243557]">
+          <div className="text-[12px] text-[var(--text-secondary)] flex items-center justify-between pt-2 border-t border-[var(--border)] dark:border-[#27272A]">
             <span>Assumption: Commercial tariff ₹{tariff.toFixed(2)} / kWh</span>
             <button
               onClick={() => setEditingAssumption(!editingAssumption)}
@@ -141,14 +141,14 @@ export const AnalyticsReports: React.FC = () => {
                 step="0.1"
                 value={tariff}
                 onChange={(e) => setTariff(Number(e.target.value))}
-                className="h-[30px] px-2 text-[12px] font-mono border rounded w-32 bg-[var(--bg)] dark:bg-[#0E1A30] text-[var(--text)] border-[var(--border)] dark:border-[#334B7A]"
+                className="h-[30px] px-2 text-[12px] font-mono border rounded w-32 bg-[var(--bg)] dark:bg-[#18181B] text-[var(--text)] border-[var(--border)] dark:border-[#27272A]"
               />
             </div>
           )}
         </div>
 
         {/* CO2 Estimate Box */}
-        <div className="p-5 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] space-y-3 transition-colors">
+        <div className="p-5 bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] space-y-3 transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-[13px] font-semibold text-[var(--text)]">
               Estimated Monthly Carbon Emissions Avoided
@@ -163,7 +163,7 @@ export const AnalyticsReports: React.FC = () => {
             <span className="text-[13px] text-[var(--text-secondary)]">kg CO₂e</span>
           </div>
 
-          <div className="text-[12px] text-[var(--text-secondary)] flex items-center justify-between pt-2 border-t border-[var(--border)] dark:border-[#243557]">
+          <div className="text-[12px] text-[var(--text-secondary)] flex items-center justify-between pt-2 border-t border-[var(--border)] dark:border-[#27272A]">
             <span>Assumption: Indian grid factor {emissionFactor} kg CO₂ / kWh</span>
             <button
               onClick={() => setEditingAssumption(!editingAssumption)}
@@ -176,7 +176,7 @@ export const AnalyticsReports: React.FC = () => {
       </div>
 
       {/* 30-Day Simulated Telemetry Overview */}
-      <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] p-5 space-y-4 transition-colors">
+      <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] p-5 space-y-4 transition-colors">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <h3 className="text-[14px] font-semibold text-[var(--text)]">
@@ -205,7 +205,7 @@ export const AnalyticsReports: React.FC = () => {
         {/* Multi-Resolution Visual View */}
         {periodTab === 'Monthly' && (
           <div className="space-y-3">
-            <div className="h-40 flex items-end gap-1 pt-4 pb-1 border-b border-[var(--border)] dark:border-[#243557]">
+            <div className="h-40 flex items-end gap-1 pt-4 pb-1 border-b border-[var(--border)] dark:border-[#27272A]">
               {monthData.map((d) => {
                 const maxVal = 1000;
                 const hPct = Math.min(100, (d.totalKwh / maxVal) * 100);
@@ -241,7 +241,7 @@ export const AnalyticsReports: React.FC = () => {
             {weekData.map((w) => (
               <div
                 key={w.date}
-                className="p-3 rounded-lg border border-[var(--border)] dark:border-[#243557] bg-[var(--bg-secondary)] dark:bg-[#0E1A30] space-y-1"
+                className="p-3 rounded-lg border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg-secondary)] dark:bg-[#18181B] space-y-1"
               >
                 <div className="text-xs font-semibold text-[var(--text)]">{w.dayLabel}</div>
                 <div className="text-base font-bold font-mono text-[var(--blue-text)]">{w.totalKwh} kWh</div>
@@ -259,7 +259,7 @@ export const AnalyticsReports: React.FC = () => {
             {dayData.slice(0, 12).map((h) => (
               <div
                 key={h.hour}
-                className="p-2.5 rounded-md border border-[var(--border)] dark:border-[#243557] bg-[var(--bg-secondary)] dark:bg-[#0E1A30]"
+                className="p-2.5 rounded-md border border-[var(--border)] dark:border-[#27272A] bg-[var(--bg-secondary)] dark:bg-[#18181B]"
               >
                 <div className="font-mono text-[var(--text-secondary)]">{h.hour}</div>
                 <div className="font-bold text-[var(--text)] mt-0.5">{h.measuredKw} kW</div>
@@ -269,7 +269,7 @@ export const AnalyticsReports: React.FC = () => {
         )}
 
         {periodTab === 'Yearly' && (
-          <div className="p-4 bg-[var(--bg-secondary)] dark:bg-[#0E1A30] rounded-lg border border-[var(--border)] dark:border-[#243557] text-xs space-y-2">
+          <div className="p-4 bg-[var(--bg-secondary)] dark:bg-[#18181B] rounded-lg border border-[var(--border)] dark:border-[#27272A] text-xs space-y-2">
             <div className="font-semibold text-[var(--text)]">Annual Baseline Projection (12 Months)</div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-1">
               <div>
@@ -302,8 +302,8 @@ export const AnalyticsReports: React.FC = () => {
       </div>
 
       {/* Campus Building 30-Day Historical Breakdown */}
-      <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#12203A] dark:border-[#243557] rounded-[10px] overflow-hidden transition-colors">
-        <div className="p-4 border-b border-[var(--border)] dark:border-[#243557] bg-[var(--bg-secondary)] dark:bg-[#0E1A30] flex items-center justify-between">
+      <div className="bg-[var(--bg)] border border-[var(--border)] dark:bg-[#121214] dark:border-[#27272A] rounded-[10px] overflow-hidden transition-colors">
+        <div className="p-4 border-b border-[var(--border)] dark:border-[#27272A] bg-[var(--bg-secondary)] dark:bg-[#18181B] flex items-center justify-between">
           <div>
             <h3 className="text-[14px] font-semibold text-[var(--text)] flex items-center gap-2">
               <Building className="w-4 h-4 text-[var(--blue-text)]" />
@@ -317,7 +317,7 @@ export const AnalyticsReports: React.FC = () => {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[var(--bg-secondary)] dark:bg-[#0E1A30] border-b border-[var(--border)] dark:border-[#243557] text-[var(--text-secondary)]">
+            <thead className="bg-[var(--bg-secondary)] dark:bg-[#18181B] border-b border-[var(--border)] dark:border-[#27272A] text-[var(--text-secondary)]">
               <tr>
                 <th className="p-3">Building Name</th>
                 <th className="p-3 text-right">30-Day Total Energy</th>
@@ -327,9 +327,9 @@ export const AnalyticsReports: React.FC = () => {
                 <th className="p-3 text-right">Efficiency Score</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--border)] dark:divide-[#243557]">
+            <tbody className="divide-y divide-[var(--border)] dark:divide-[#27272A]">
               {buildings.map((b) => (
-                <tr key={b.buildingId} className="hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A] transition-colors">
+                <tr key={b.buildingId} className="hover:bg-[var(--bg-hover)] dark:hover:bg-[#202024] transition-colors">
                   <td className="p-3 font-semibold text-[var(--text)] flex items-center gap-2">
                     <span className="w-6 h-6 rounded bg-[var(--blue-light)] text-[var(--blue-text)] font-mono flex items-center justify-center font-bold">
                       {b.buildingId}

@@ -351,23 +351,39 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     let totalAllocated = 0;
     const overriddenLoads = basePlan.loads.map((l) => {
       if (manualLoadOverrides[l.loadId] !== undefined) {
-        const manualKw = manualLoadOverrides[l.loadId];
+        const manualKw = Math.max(0, Math.round(manualLoadOverrides[l.loadId] * 10) / 10);
         totalAllocated += manualKw;
-        const reduced = Math.max(0, l.scaledRequestedKw - manualKw);
+        const requested = l.scaledRequestedKw;
+
+        const isDeferred = manualKw === 0 && l.deferrable;
+        const deferredKw = isDeferred ? requested : 0;
+        const reducedKw = !isDeferred && manualKw < requested
+          ? Math.max(0, Math.round((requested - manualKw) * 10) / 10)
+          : 0;
+        const unmetKw = Math.max(0, Math.round((deferredKw + reducedKw) * 10) / 10);
+
+        let status: AllocatedLoadItem['status'] = 'FULL';
+        if (manualKw === 0) {
+          status = l.deferrable ? 'DEFERRED' : 'UNSERVED_WARNING';
+        } else if (manualKw < l.effectiveMinKw) {
+          status = 'UNSERVED_WARNING';
+        } else if (Math.abs(manualKw - requested) < 0.05) {
+          status = 'FULL';
+        } else if (Math.abs(manualKw - l.effectiveMinKw) < 0.05) {
+          status = 'AT_MINIMUM';
+        } else {
+          status = 'REDUCED';
+        }
+
         return {
           ...l,
           allocatedKw: manualKw,
-          reducedKw: Math.round(reduced * 10) / 10,
-          unmetKw: Math.max(0, Math.round((l.scaledRequestedKw - manualKw) * 10) / 10),
-          status: (manualKw === 0 
-            ? 'DEFERRED' 
-            : manualKw < l.effectiveMinKw 
-            ? 'UNSERVED_WARNING' 
-            : manualKw < l.scaledRequestedKw 
-            ? 'REDUCED' 
-            : 'FULL') as AllocatedLoadItem['status'],
+          reducedKw,
+          deferredKw,
+          unmetKw,
+          status,
           isManuallyOverridden: true,
-          explanation: `Manually overridden by administrator to ${manualKw.toFixed(1)} kW.`,
+          explanation: `Manually adjusted by administrator to ${manualKw.toFixed(1)} kW (Requested: ${requested.toFixed(1)} kW).`,
         };
       }
       totalAllocated += l.allocatedKw;
@@ -375,17 +391,39 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     });
 
     const roundedTotal = Math.round(totalAllocated * 10) / 10;
-    const feasible = roundedTotal <= basePlan.availableKw;
+    const feasible = roundedTotal <= (basePlan.availableKw + 0.05);
+    const unmetTotalKw = Math.round(overriddenLoads.reduce((s, l) => s + l.unmetKw, 0) * 10) / 10;
+    const utilisationRatio = basePlan.availableKw > 0
+      ? Math.round((roundedTotal / basePlan.availableKw) * 100) / 100
+      : 0;
+
+    // Recalculate Category Totals dynamically with manual overrides
+    const getCatTotals = (priority: string) => {
+      const catLoads = overriddenLoads.filter((l) => l.priority === priority);
+      return {
+        requested: Math.round(catLoads.reduce((s, l) => s + l.scaledRequestedKw, 0) * 10) / 10,
+        allocated: Math.round(catLoads.reduce((s, l) => s + l.allocatedKw, 0) * 10) / 10,
+        unmet: Math.round(catLoads.reduce((s, l) => s + l.unmetKw, 0) * 10) / 10,
+      };
+    };
 
     return {
       ...basePlan,
       allocatedTotalKw: roundedTotal,
+      unmetTotalKw,
+      utilisationRatio,
       loads: overriddenLoads,
       feasible,
       hasManualOverrides: true,
+      categoryTotals: {
+        P0: getCatTotals('P0'),
+        P1: getCatTotals('P1'),
+        P2: getCatTotals('P2'),
+        P3: getCatTotals('P3'),
+      },
       feasibilityReason: feasible
-        ? `Manual overrides active: ${roundedTotal} kW allocated vs ${basePlan.availableKw} kW capacity limit.`
-        : `Manual override allocation of ${roundedTotal} kW exceeds maximum emergency capacity of ${basePlan.availableKw} kW.`,
+        ? `Manual overrides active: ${roundedTotal} kW allocated within ${basePlan.availableKw} kW capacity limit.`
+        : `Manual override allocation of ${roundedTotal} kW exceeds maximum emergency capacity of ${basePlan.availableKw} kW (+${Math.round((roundedTotal - basePlan.availableKw) * 10) / 10} kW excess).`,
     };
   }, [loads, scenarioInputs, manualLoadOverrides]);
 

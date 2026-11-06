@@ -38,10 +38,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
 
   return (
     <aside
-      className={`w-[240px] bg-[var(--bg-sidebar)] dark:bg-[#0E1A30] border-r border-[var(--border)] dark:border-[#243557] flex flex-col justify-between h-full select-none shrink-0 transition-colors ${className}`}
+      className={`w-[240px] bg-[var(--bg-sidebar)] dark:bg-[#101012] border-r border-[var(--border)] dark:border-[#27272A] flex flex-col justify-between h-full select-none shrink-0 transition-colors ${className}`}
     >
       {/* Brand row */}
-      <div className="h-[48px] px-4 flex items-center gap-2.5 border-b border-[var(--border)] dark:border-[#243557]">
+      <div className="h-[48px] px-4 flex items-center gap-2.5 border-b border-[var(--border)] dark:border-[#27272A]">
         {/* Logo: 24px rounded-6 blue square with white lightning glyph */}
         <div className="w-6 h-6 rounded-[6px] bg-[#3478D4] flex items-center justify-center text-white shrink-0 shadow-xs">
           <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'overview'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -85,7 +85,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'buildings'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -99,7 +99,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'rooms'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -113,7 +113,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'bookings'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'monitoring'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -154,7 +154,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'planner'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -171,7 +171,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'data-integrity'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -188,7 +188,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'analytics'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -202,7 +202,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'intelligence'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -229,7 +229,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'notifications'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -248,7 +248,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'maintenance'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -262,7 +262,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
               className={`w-full h-[32px] px-2 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
                 activePage === 'audit'
                   ? 'bg-[var(--blue-light)] text-[var(--blue-text)]'
-                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+                  : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -275,20 +275,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '', onCloseMobile 
       </div>
 
       {/* COMBINED SETTINGS & PROFILE TAB (Requirement 9) */}
-      <div className="p-3 border-t border-[var(--border)] dark:border-[#243557] space-y-1">
+      <div className="p-3 border-t border-[var(--border)] dark:border-[#27272A] space-y-1">
         <button
           onClick={() => handleNav('settings')}
           className={`w-full h-[36px] px-2.5 rounded-[8px] text-[13px] font-medium flex items-center justify-between transition-colors ${
             activePage === 'settings' || activePage === 'profile'
               ? 'bg-[var(--blue-light)] text-[var(--blue-text)] font-semibold shadow-xs'
-              : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#182A4A]'
+              : 'text-[var(--text)] hover:bg-[var(--bg-hover)] dark:hover:bg-[#1E1E22]'
           }`}
         >
           <div className="flex items-center gap-2">
             <Settings className="w-4 h-4 stroke-[1.5]" />
             <span>Settings & Profile</span>
           </div>
-          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-[var(--bg)] dark:bg-[#182A4A] border border-[var(--border)] dark:border-[#334B7A] text-[var(--text-secondary)]">
+          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-[var(--bg)] dark:bg-[#18181B] border border-[var(--border)] dark:border-[#27272A] text-[var(--text-secondary)]">
             Admin
           </span>
         </button>

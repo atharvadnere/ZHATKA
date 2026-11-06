@@ -2,7 +2,7 @@
 
 **Smarter Decisions. Safer Operations. Measurable Efficiency.**
 
-ZHATKA is a safety-first campus energy intelligence prototype developed for **CodeNex — PS6: The Sleeping Campus** by **Team The Other Side, SRMIST**.
+ZHATKA is a safety-first campus energy intelligence prototype developed for **CodeNex — PS6: The Sleeping Campus** by **Team Sudoers, SRMIST**.
 
 It helps campus operators understand room-level energy use, validate incoming readings, plan how limited electrical capacity could be allocated during a demand emergency, and review explainable recommendations without compromising protected equipment.
 
@@ -167,52 +167,13 @@ Recommendation, safety and audit features appear as integrated panels or views. 
 
 The planned MVP stack is deliberately lightweight:
 
-- **React + Vite** — frontend application.
-- **JavaScript** — validation, room-state and allocation logic.
-- **CSS** — responsive interface and design system.
-- **LocalStorage** — persistence of demo state in the browser.
-- **JSON** — deterministic seed data and normalized records.
-- **PapaParse or equivalent** — safe CSV parsing.
-- **Recharts (optional)** — charts where they add useful information.
-
-No backend, database, live sensor API, external AI API or physical control endpoint is required for the MVP.
-
+- **ChatGPT** — Problem Understanding and Prompt Engineering.
+- **Claude** — Core App Functionality Definition
+- **Google AI Studio** — Building the finalised draft into a website.
 ---
 
-## Getting started
-
-### Prerequisites
-
-- Node.js (LTS recommended).
-- npm.
-- Git.
-
-### Run locally
-
-```bash
-# Clone the repository
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-
-# Enter the project folder
-cd <YOUR_PROJECT_FOLDER>
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-Open the local URL printed by Vite in the terminal (commonly `http://localhost:5173`).
-
-If the repository's `package.json` uses different scripts, follow the scripts defined there. Do not assume a command is available unless it exists in the project.
-
-### Production build
-
-```bash
-npm run build
-```
-
+## Website Link
+- https://zhatka.ai.studio
 ---
 
 ## Demo scenarios
@@ -274,9 +235,9 @@ ZHATKA is a **decision-support prototype**. It is not an electrical protection s
 
 ## Team
 
-**The Other Side**  
+**Sudoers**  
 SRM Institute of Science and Technology (SRMIST)  
-CodeNex Hackathon · PS6 — The Sleeping Campus
+CodeNex Hackathon · The Other Side
 
 ---
 
